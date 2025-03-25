@@ -11,6 +11,6 @@ class ProjectController extends Controller
 {
     public function index(Project $project) //インポートしたProjectをインスタンス化して$projectとして使用。
     {
-        return view('projects.index')->with(['projects' => $project->get()]);
+        return view('projects.index')->with(['projects' => $project->getPaginateByLimit()]);
     }
 }
