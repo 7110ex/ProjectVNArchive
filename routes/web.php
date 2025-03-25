@@ -28,6 +28,8 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/', [ProjectController::class, 'index']);
+    Route::get('/projects/{project}', [ProjectController::class, 'show']);
+    // '/projects/{対象データのID}'にGetリクエストが来たら、ProjectControllerのshowメソッドを実行する
 });
 
 
