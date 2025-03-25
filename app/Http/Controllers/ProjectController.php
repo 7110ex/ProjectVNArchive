@@ -13,4 +13,10 @@ class ProjectController extends Controller
     {
         return view('projects.index')->with(['projects' => $project->getPaginateByLimit()]);
     }
+
+    public function show(Project $project)
+    {
+        return view('projects.show')->with(['project' => $project]);
+        //'project'はbladeファイルで使う変数。中身は$projectはid=1のProjectインスタンス。
+    }
 }
