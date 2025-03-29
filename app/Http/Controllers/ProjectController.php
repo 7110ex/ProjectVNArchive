@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Http\Requests\ProjectRequest;
 use Illuminate\Http\Request;
 
 
@@ -18,5 +19,17 @@ class ProjectController extends Controller
     {
         return view('projects.show')->with(['project' => $project]);
         //'project'はbladeファイルで使う変数。中身は$projectはid=1のProjectインスタンス。
+    }
+
+    public function create()
+    {
+        return view('projects.create');
+    }
+
+    public function store(Project $project, ProjectRequest $request)
+    {
+        $input = $request['project'];
+        $project->fill($input)->save();
+        return redirect('/projects/' . $project->id);
     }
 }
