@@ -10,6 +10,7 @@
 
 <body>
     <h1>参加しているプロジェクト一覧</h1>
+    <a href='/projects/create'>プロジェクトを新規作成</a>
     <div class='projects'>
         @foreach ($projects as $project)
         <div class='project'>
